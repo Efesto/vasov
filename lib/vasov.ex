@@ -68,16 +68,17 @@ defmodule Vasov do
   }
 
   @doc """
-  transliterates a text from bulgarian cyrillic language to roman latin
+  Transliterates a text from bulgarian cyrillic language to roman latin
 
-  Examples:
+  Usage:
+  ```
   iex> Vasov.transliterate("Бургас")
   "Burgas"
   iex> Vasov.transliterate("София")
   "Sofia"
   iex> Vasov.transliterate("България")
   "Bulgaria"
-
+  ```
   """
   def transliterate(text) do
     text
