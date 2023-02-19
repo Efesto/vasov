@@ -1,8 +1,8 @@
 defmodule Vasov do
   @moduledoc """
-  Transliterates from cyrillic to roman latin
+  Transliterates from bulgarian cyrillic to roman latin and reverse
 
-  For bulgarian the [streamlined system](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1105090/ROMANIZATION_OF_BULGARIAN_with_examples.pdf) is implemented
+  The [streamlined system](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1105090/ROMANIZATION_OF_BULGARIAN_with_examples.pdf) is implemented
   """
   @bg_to_latin %{
     "Р" => "R",
@@ -68,7 +68,7 @@ defmodule Vasov do
   }
 
   @doc """
-  transliterates a text from a certain cyrillic language to roman latin
+  transliterates a text from bulgarian cyrillic language to roman latin
 
   Examples:
   iex> Vasov.transliterate("Бургас")
