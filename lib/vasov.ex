@@ -67,6 +67,65 @@ defmodule Vasov do
     "Щ" => "Sht"
   }
 
+  @latin_to_bg %{
+    "k" => "к",
+    "zh" => "ж",
+    "G" => "Г",
+    "Ts" => "Ц",
+    "D" => "Д",
+    "K" => "К",
+    "F" => "Ф",
+    "i" => "и",
+    "v" => "в",
+    "g" => "г",
+    "ts" => "ц",
+    "e" => "е",
+    "T" => "Т",
+    "Y" => "Ь",
+    "V" => "В",
+    "l" => "л",
+    "U" => "У",
+    "B" => "Б",
+    "ch" => "ч",
+    "z" => "з",
+    "a" => "ъ",
+    "p" => "п",
+    "Ya" => "Я",
+    "Zh" => "Ж",
+    "f" => "ф",
+    "ya" => "я",
+    "h" => "х",
+    "r" => "р",
+    "L" => "Л",
+    "S" => "С",
+    "yu" => "ю",
+    "O" => "О",
+    "R" => "Р",
+    "o" => "о",
+    "H" => "Х",
+    "E" => "Е",
+    "Sht" => "Щ",
+    "u" => "у",
+    "s" => "с",
+    "n" => "н",
+    "b" => "б",
+    "Z" => "З",
+    "Sh" => "Ш",
+    "Yu" => "Ю",
+    "N" => "Н",
+    "A" => "А",
+    "y" => "ь",
+    "Ch" => "Ч",
+    "M" => "М",
+    "t" => "т",
+    "m" => "м",
+    "I" => "И",
+    "P" => "П",
+    "sht" => "щ",
+    "sh" => "ш",
+    "d" => "д"
+  }
+
   @doc """
   Transliterates a text from bulgarian cyrillic language to roman latin
 
@@ -87,6 +146,38 @@ defmodule Vasov do
     |> Enum.reduce("", fn
       original, acc -> acc <> Map.get(@bg_to_latin, original, original)
     end)
+  end
+
+  @doc """
+  Transliterates a text from roman latin to bulgarian cyrillic
+
+  Usage:
+  ```
+  iex> Vasov.transliterate_to_cyrillic("Burgas")
+  "Бургас"
+  iex> Vasov.transliterate_to_cyrillic("Sofia")
+  "София"
+  iex> Vasov.transliterate_to_cyrillic("Bulgaria")
+  "България"
+  ```
+  """
+  def transliterate_to_cyrillic(text) do
+    dbg()
+
+    fancy_regex()
+    |> Regex.named_captures(text)
+    |> IO.inspect()
+  end
+
+  defp fancy_regex() do
+    @latin_to_bg
+    |> Enum.map_join(
+      "|",
+      fn {latin, _cyrillic} ->
+        "(?<#{latin}>#{latin})"
+      end
+    )
+    |> Regex.compile()
   end
 
   defp normalize(text) do
