@@ -31,7 +31,8 @@ defmodule Vasov.MixProject do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
-      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
+      {:mix_test_interactive, "~> 1.0", only: :dev, runtime: false}
     ]
   end
 end

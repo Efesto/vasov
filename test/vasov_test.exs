@@ -3,8 +3,8 @@ defmodule VasovTest do
 
   doctest Vasov
 
-  describe "transliterate/1 from bulgarian cyrillic into latin" do
-    test "transliterate" do
+  describe "transliterate_to_latin/1" do
+    test "transliterates from bulgarian cyrillic to latin" do
       Enum.each(
         [
           {"основните", "osnovnite"},
@@ -78,12 +78,12 @@ defmodule VasovTest do
       )
     end
 
-    test "do not transliterate unknown letters" do
+    test "does not transliterate latin letters" do
       assert_transliteration("bulgaria", "bulgaria")
     end
 
     defp assert_transliteration(expected, original) do
-      assert expected == Vasov.transliterate(original)
+      assert expected == Vasov.transliterate_to_latin(original)
     end
   end
 end

@@ -72,15 +72,15 @@ defmodule Vasov do
 
   Usage:
   ```
-  iex> Vasov.transliterate("Бургас")
+  iex> Vasov.transliterate_to_latin("Бургас")
   "Burgas"
-  iex> Vasov.transliterate("София")
+  iex> Vasov.transliterate_to_latin("София")
   "Sofia"
-  iex> Vasov.transliterate("България")
+  iex> Vasov.transliterate_to_latin("България")
   "Bulgaria"
   ```
   """
-  def transliterate(text) do
+  def transliterate_to_latin(text) do
     text
     |> normalize()
     |> String.graphemes()
