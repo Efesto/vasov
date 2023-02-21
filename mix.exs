@@ -1,14 +1,19 @@
 defmodule Vasov.MixProject do
   use Mix.Project
 
+  @source_url "https://github.com/Efesto/vasov"
+  @version "0.1.0"
+
   def project do
     [
       app: :vasov,
-      version: "0.1.0",
+      version: @version,
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      docs: docs()
+      docs: docs(),
+      package: package(),
+      description: description()
     ]
   end
 
@@ -21,8 +26,8 @@ defmodule Vasov.MixProject do
   defp docs do
     [
       main: "Vasov",
-      source_ref: "master",
-      source_url: "https://github.com/Efesto/vasov",
+      source_ref: "v#{@version}",
+      source_url: @source_url,
       extras: ["README.md"]
     ]
   end
@@ -33,6 +38,20 @@ defmodule Vasov.MixProject do
       {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:mix_test_interactive, "~> 1.0", only: :dev, runtime: false}
+    ]
+  end
+
+  defp description do
+    "Transliterates from bulgarian cyrillic to latin."
+  end
+
+  defp package() do
+    [
+      name: "vasov",
+      licenses: ["Apache-2.0"],
+      links: %{
+        "GitHub" => @source_url
+      }
     ]
   end
 end
