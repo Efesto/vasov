@@ -5,7 +5,7 @@ defmodule Vasov do
   The transliteration implements the [streamlined system](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1105090/ROMANIZATION_OF_BULGARIAN_with_examples.pdf)
   officially adopted in Bulgaria.
   """
-  @bg_to_latin %{
+  @transliteration_table %{
     "Р" => "R",
     "з" => "z",
     "Т" => "T",
@@ -86,9 +86,14 @@ defmodule Vasov do
     |> normalize()
     |> String.graphemes()
     |> Enum.reduce("", fn
-      original, acc -> acc <> Map.get(@bg_to_latin, original, original)
+      original, acc -> acc <> Map.get(@transliteration_table, original, original)
     end)
   end
+
+  @doc """
+  Returns the transliteration table as a map
+  """
+  def transliteration_table, do: @transliteration_table
 
   defp normalize(text) do
     text

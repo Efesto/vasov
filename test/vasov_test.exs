@@ -86,4 +86,10 @@ defmodule VasovTest do
       assert expected == Vasov.transliterate_to_latin(original)
     end
   end
+
+  describe "transliteration_table/0" do
+    test "returns the transliteration table" do
+      assert %{"и" => "i", "И" => "I", "т" => "t"} = Vasov.transliteration_table()
+    end
+  end
 end
