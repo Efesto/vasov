@@ -1,10 +1,11 @@
 defmodule Vasov do
-  @moduledoc """
-  Transliterates from bulgarian cyrillic to roman latin
+  @external_resource "README.md"
 
-  The transliteration implements the [streamlined system](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1105090/ROMANIZATION_OF_BULGARIAN_with_examples.pdf)
-  officially adopted in Bulgaria.
-  """
+  @moduledoc @external_resource
+             |> File.read!()
+             |> String.split("<!-- MDOC !-->")
+             |> Enum.fetch!(1)
+
   @transliteration_table %{
     "Р" => "R",
     "з" => "z",

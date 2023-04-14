@@ -4,7 +4,9 @@
 [![Hex pm](https://img.shields.io/hexpm/v/vasov.svg?style=flat)](https://hex.pm/packages/vasov)
 [![Hexdocs.pm](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/vasov/)
 
-Transliterates from bulgarian cyrillic to latin.
+<!-- MDOC !-->
+
+Vasov implements text transliteration from bulgarian cyrillic to latin according to the [streamlined system](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1105090/ROMANIZATION_OF_BULGARIAN_with_examples.pdf) officially adopted in Bulgaria.
 
 The name is an homage to [Ivan Vazov (Иван Вазов)](https://en.wikipedia.org/wiki/Ivan_Vazov).
 
