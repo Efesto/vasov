@@ -2,7 +2,7 @@ defmodule Vasov.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Efesto/vasov"
-  @version "0.2.0"
+  @version "0.2.1"
 
   def project do
     [
@@ -34,10 +34,10 @@ defmodule Vasov.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:mix_audit, "~> 2.0", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:mix_test_interactive, "~> 1.0", only: :dev, runtime: false}
+      {:mix_test_watch, "~> 1.1", only: [:test, :dev], runtime: false}
     ]
   end
 
