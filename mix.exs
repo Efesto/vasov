@@ -2,13 +2,13 @@ defmodule Vasov.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Efesto/vasov"
-  @version "0.2.1"
+  @version "0.2.2"
 
   def project do
     [
       app: :vasov,
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       docs: docs(),
