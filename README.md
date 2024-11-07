@@ -17,7 +17,7 @@ The package can be installed by adding `vasov` to your list of dependencies in `
 ```elixir
 def deps do
   [
-    {:vasov, "~> 0.2.1"}
+    {:vasov, "~> 1.0.0"}
   ]
 end
 ```

@@ -2,7 +2,7 @@ defmodule Vasov.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Efesto/vasov"
-  @version "0.2.2"
+  @version "1.0.0"
 
   def project do
     [
