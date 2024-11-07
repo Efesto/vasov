@@ -1,10 +1,12 @@
-defmodule Vasov do
-  @external_resource "README.md"
+external_resource = "README.md"
 
-  @moduledoc @external_resource
+defmodule Vasov do
+  @moduledoc external_resource
              |> File.read!()
              |> String.split("<!-- MDOC !-->")
              |> Enum.fetch!(1)
+
+  @external_resource external_resource
 
   @transliteration_table %{
     "Р" => "R",
