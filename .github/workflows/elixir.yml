@@ -11,18 +11,18 @@ on:
 jobs:
   build:
     name: Build and test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
-        elixir: ["1.15.0", "1.16.0"]
+        elixir: ["1.16.0", "1.17.3"]
         otp: ["25.3.2", "26.2.5"]
         include:
-          - elixir: "1.17.3"
-            otp: "27.1.2"
+          - elixir: "1.18.3"
+            otp: "27.3.4"
     steps:
       - uses: actions/checkout@v4
       - name: Set up Elixir
-        uses: erlef/setup-beam@v1
+        uses: erlef/setup-beam@v1.18.2
         with:
           otp-version: ${{matrix.otp}}
           elixir-version: ${{matrix.elixir}}
